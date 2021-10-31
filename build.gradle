@@ -35,9 +35,8 @@ dependencies {
 	modImplementation "com.terraformersmc:modmenu:2.0.2", {
 		exclude module: "fabric-api"
 	}
-	modImplementation "com.jab125:camo:1.0-SNAPSHOT", {
-		exclude module: "fabric-api"
-	}
+	//modImplementation "com.jab125:camo:1.0-SNAPSHOT", {
+	//}
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
