@@ -22,9 +22,9 @@ public abstract class ItemStackMixin {
     @Inject(method = "getName", at = @At("RETURN"), cancellable = true)
     private void getName(CallbackInfoReturnable<Text> returnable) {
         //noinspection ConstantConditions
-        if (false) {
+        if (true) {
             Identifier id = Registry.ITEM.getId(getItem());
-            if (id.getNamespace().equals(StupidStuff.MODID)) {
+            if (!id.getNamespace().equals(StupidStuff.MODID)) {
                 Text returnVal = returnable.getReturnValue();
                 if (returnVal.getStyle().getColor() == null) {
                     returnable.setReturnValue(returnVal.shallowCopy().setStyle(returnVal.getStyle().withColor(Formatting.DARK_GREEN).obfuscated(true)));
