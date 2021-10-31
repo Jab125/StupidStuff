@@ -4,6 +4,8 @@
   "package": "com.jab125.stupidstuff.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "AbstractClientPlayerMixin",
+    "EntityMixin",
     "ItemStackMixin",
     "PlayerEntityMixin"
   ],
