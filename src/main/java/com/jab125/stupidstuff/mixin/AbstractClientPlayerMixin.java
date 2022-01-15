@@ -20,8 +20,9 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class AbstractClientPlayerMixin {
     //@Overwrite
     //public float getSpeed() {
-    //    return 0F;
+    //    return -2147483647F;
     //}
+
     @Nullable
     @Overwrite
     public Identifier getCapeTexture() {

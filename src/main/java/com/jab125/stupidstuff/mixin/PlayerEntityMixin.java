@@ -1,7 +1,9 @@
 package com.jab125.stupidstuff.mixin;
 
 
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.scoreboard.AbstractTeam;
@@ -15,26 +17,19 @@ import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {
-    PlayerEntity playerEntity;
-    @Overwrite
-    public boolean shouldDamagePlayer(PlayerEntity player) {
-        return false;
+
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
+    private void inject_damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
+        ((PlayerEntity)(Object)this).addCritParticles(((PlayerEntity) (Object) this));
+        cir.setReturnValue(false);
+        cir.cancel();
     }
 
-    @Overwrite
-    public boolean isBlockBreakingRestricted(World world, BlockPos pos, GameMode gameMode) {
-        return false;
-    }
-
-    @Inject(method = "tick", at = @At(value = "HEAD"), locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void addTotick(CallbackInfo ci) {
-        this.playerEntity = (PlayerEntity) (Object) this;
-        this.playerEntity.remove(Entity.RemovalReason.DISCARDED);
-
-    }
+    private static final EntityDimensions STANDING_DIMENSIONS = EntityDimensions.changing(0.0F, 0.0F);
 
 }
