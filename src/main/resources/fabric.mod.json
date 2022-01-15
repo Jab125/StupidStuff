@@ -6,7 +6,9 @@
   "name": "Stupid Stuff",
   "description": "doot doot",
   "authors": [
-    "Me!"
+    "SOMFPKFS",
+    "me",
+    "other persion"
   ],
   "contact": {
   },
@@ -27,10 +29,10 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
+    "minecraft": ["1.17.x", "1.18.x", "420.69.x"],
     "java": ">=16"
   },
   "suggests": {
-    "another-mod": "*"
+    "minecraft": "*"
   }
 }
