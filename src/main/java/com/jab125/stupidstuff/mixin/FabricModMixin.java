@@ -15,6 +15,6 @@ public class FabricModMixin {
     @Inject(method = "getVersion", at = @At("HEAD"), cancellable = true ,remap = false)
     private void inject_version(CallbackInfoReturnable<String> cir) {
         if (((FabricMod)(Object)this).getId().equals("minecraft"))
-        cir.setReturnValue("2.15");
+        cir.setReturnValue("420.69");
     }
 }

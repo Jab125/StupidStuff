@@ -57,32 +57,32 @@ public class MAAA {
         SharedConstants.setGameVersion(new GameVersion() {
             @Override
             public String getId() {
-                return "2.15";
+                return "420.69";
             }
 
             @Override
             public String getName() {
-                return "2.15";
+                return "420.69";
             }
 
             @Override
             public String getReleaseTarget() {
-                return "2.15";
+                return "420.69";
             }
 
             @Override
             public int getWorldVersion() {
-                return 3345;
+                return 42069;
             }
 
             @Override
             public int getProtocolVersion() {
-                return 34533;
+                return 42069;
             }
 
             @Override
             public int getPackVersion(PackType packType) {
-                return 17;
+                return 42069;
             }
 
             @Override
